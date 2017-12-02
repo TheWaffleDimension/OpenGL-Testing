@@ -6,15 +6,11 @@
 
 class Transform {
 public:
-	Transform() :
-		m_pos(glm::vec3(0.0f, 0.0f, 0.0f)),
-		m_rot(glm::vec3(0.0f, 0.0f, 0.0f)),
-		m_scale(glm::vec3(0.0f, 0.0f, 0.0f)) {}
-
-	Transform(const glm::vec3& pos, const glm::vec3& rot, const glm::vec3& scale) :
-		m_pos(pos),
-		m_rot(rot),
-		m_scale(scale) {}
+	Transform(const glm::vec3& pos = glm::vec3(), const glm::vec3& rot = glm::vec3(), const glm::vec3& scale = glm::vec3(1.0f, 1.0f, 1.0f)) {
+		this->m_pos = pos;
+		this->m_rot = rot;
+		this->m_scale = scale;
+	}
 
 	inline glm::mat4 getModel() const {
 		glm::mat4 posMatrix = glm::translate(m_pos);
@@ -33,9 +29,9 @@ public:
 	inline glm::vec3& getRot() { return m_rot; }
 	inline glm::vec3& getScale() { return m_scale; }
 
-	inline void setPos(glm::vec3& pos) { m_pos = pos; }
-	inline void setRot(glm::vec3& rot) { m_rot = rot; }
-	inline void setScale(glm::vec3& scale) { m_scale = scale; }
+	inline void setPos(const glm::vec3& pos) { m_pos = pos; }
+	inline void setRot(const glm::vec3& rot) { m_rot = rot; }
+	inline void setScale(const glm::vec3& scale) { m_scale = scale; }
 protected:
 private:
 	glm::vec3 m_pos;

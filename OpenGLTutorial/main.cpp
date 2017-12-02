@@ -28,7 +28,8 @@ int main(int argc, char ** argv) {
 	while (!display.isClosed()) {
 		display.clear(0.0f, 1.0f, 1.0f, 1.0f);
 
-		transform.getPos().x = sinf(counter);
+		transform.getPos().y = ((1.0f + sinf(counter)) * 0.5f) - 0.5f;
+		transform.getRot().y = counter;
 
 		shader.bind();
 
