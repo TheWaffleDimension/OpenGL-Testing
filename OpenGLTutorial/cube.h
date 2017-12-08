@@ -59,7 +59,7 @@ private:
 				Vertex(glm::vec3(width / 2, -height / 2, depth / 2), glm::vec2(width, depth), glm::vec3(0.0f, -1.0f, 1.0f))
 		};
 
-		m_vertices = std::vector<Vertex>(vertices, vertices + sizeof(vertices)/sizeof(vertices[0]));
+		m_vertices = { std::begin(vertices), std::end(vertices) };
 	}
 };
 
@@ -72,7 +72,7 @@ Cube::Cube(float width, float height, float depth) {
 
 	unsigned int indices[24] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 };
 
-	m_indices = std::vector<unsigned int>(indices, indices + sizeof(indices)/sizeof(indices[0]));
+	m_indices = { std::begin(indices), std::end(indices) };
 }
 
 Cube::~Cube() {
