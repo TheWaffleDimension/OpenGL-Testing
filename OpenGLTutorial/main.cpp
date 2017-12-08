@@ -28,6 +28,7 @@ int main(int argc, char ** argv) {
 	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
 	Mesh mesh2("./res/monkey3.obj");
 	Cube cube(1, 1, 1);
+	Mesh mesh3(cube.getVertices(), sizeof(cube.getVertices()) / sizeof(cube.getVertices()[0]), cube.getIndices(), sizeof(cube.getIndices()) / sizeof(cube.getIndices()[0]));
 	Texture texture("./res/bricks.jpg");
 
 	Transform transform;
@@ -55,7 +56,7 @@ int main(int argc, char ** argv) {
 		texture.bind(0);
 		shader.update(transform, camera);
 		//mesh2.draw();
-		cube.draw();
+		mesh3.draw();
 
 		display.update();
 		counter += 0.01f;
