@@ -6,6 +6,7 @@
 #include <GL/glew.h>
 
 #include "transform.h"
+#include "camera.h"
 
 class Shader {
 public:
@@ -13,7 +14,7 @@ public:
 	~Shader();
 
 	void bind();
-	void update(const Transform& transform);
+	void update(Transform& transform, const Camera& camera);
 protected:
 private:
 	enum {
